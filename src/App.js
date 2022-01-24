@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [token, setToken] = useState('')
+  const [products, setProducts] = useState([])
+
+  const body = {
+    username: 'user_task',
+    password: 'user_task',
+    subdomain: 'toko',
+  }
+  useEffect(() => {
+    fetch('https://toko.ox-sys.com/security/auth_check', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `_username=${body.username}&_password=${body.password}&_subdomain=${body.subdomain}`,
+    })
+      .then((response) => response.json())
+      .then((response) => setToken(response.token))
+      .catch((error) => console.log(error))
+  }, [])
+
+  useEffect(() => {
+    if (token) {
+      fetch('https://toko.ox-sys.com/variations', {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => setProducts(response))
+        .catch((error) => console.log(error))
+    }
+  }, [token])
+
+  console.log(products)
+
+  return <div className="App">Main</div>
 }
 
-export default App;
+export default App
