@@ -1,0 +1,215 @@
+{
+  "sku": "G051SZ011.000.425971",
+  "supplier": "Cacharel",
+  "supplierId": 1,
+  "category": 21,
+  "tags": [],
+  "shortDescription": "",
+  "id": 110,
+  "barcode": "8681286950160",
+  "stocks": [
+      {
+          "imported": "2020-11-26 17:54:55",
+          "id": "75956cdb-2d83-4149-adb0-878a19ee987f",
+          "location": 1,
+          "import": 1,
+          "originalImport": 1,
+          "transfer": null,
+          "transferCount": 0,
+          "importCount": 3,
+          "originalImportCount": 0,
+          "tracking": true,
+          "countable": true,
+          "composite": false,
+          "sellPrice": {
+              "first": "UZS",
+              "ratio": {
+                  "UZS/USD": 9.523809523809524e-5,
+                  "USD/UZS": 10500
+              },
+              "order": [
+                  "UZS",
+                  "USD"
+              ],
+              "UZS": 1359900,
+              "USD": 129.51
+          },
+          "supplyPrice": {
+              "first": "UZS",
+              "ratio": {
+                  "USD/UZS": 10500,
+                  "UZS/USD": 9.523809523809524e-5
+              },
+              "order": [
+                  "UZS",
+                  "USD"
+              ],
+              "UZS": 1087920,
+              "USD": 103.61
+          },
+          "properties": [],
+          "expirationDate": null,
+          "supplier": 1,
+          "count": 3
+      }
+  ],
+  "ingredients": [],
+  "name": "TSHIRT",
+  "shippable": true,
+  "taxable": false,
+  "vatPercent": null,
+  "cookable": false,
+  "sellable": true,
+  "countable": true,
+  "composite": false,
+  "scalable": false,
+  "product": 8,
+  "images": [],
+  "unit": "pcs",
+  "brand": 1,
+  "zone": 1,
+  "videos": null,
+  "properties": [
+      {
+          "name": "Размер",
+          "value": "M"
+      },
+      {
+          "name": "Цвет",
+          "value": "GREY"
+      }
+  ],
+  "productProperties": [
+      {
+          "id": "12ae2a12586001e30745cb0457586ae3",
+          "name": "Тип",
+          "value": "Одежда"
+      },
+      {
+          "id": "141146f6421f3d59ae5d77b1beb72efb",
+          "name": "Пол",
+          "value": "MAN"
+      },
+      {
+          "id": "eccc5cfdf39564c56bc8a085ff353f8a",
+          "name": "Торговая марка",
+          "value": "Cacharel"
+      }
+  ],
+  "area": null,
+  "importRecord": {
+      "id": 110,
+      "import": 1,
+      "variation": 110,
+      "initialCount": 0,
+      "approvals": [
+          {
+              "time": "2020-11-26 17:57:58",
+              "count": 3
+          }
+      ],
+      "variationBarcode": "8681286950160",
+      "variationName": "TSHIRT",
+      "areaNames": null,
+      "variationShippable": true,
+      "variationTaxable": false,
+      "variationSellable": true,
+      "variationCountable": true,
+      "variationCookable": false,
+      "variationScalable": false,
+      "unit": "pcs",
+      "variationProperties": [
+          {
+              "name": "Размер",
+              "value": "M"
+          },
+          {
+              "name": "Цвет",
+              "value": "GREY"
+          }
+      ],
+      "productProperties": [
+          {
+              "name": "Тип",
+              "value": "Одежда"
+          },
+          {
+              "name": "Пол",
+              "value": "MAN"
+          }
+      ],
+      "productSku": "G051SZ011.000.425971",
+      "productName": "TSHIRT",
+      "productDescription": "",
+      "supplierName": "CACHAREL",
+      "categoryNames": [
+          "TOP"
+      ],
+      "count": 3,
+      "stockTracking": true,
+      "stockSellPrice": {
+          "first": "UZS",
+          "ratio": {
+              "UZS/USD": 9.523809523809524e-5,
+              "USD/UZS": 10500
+          },
+          "order": [
+              "UZS",
+              "USD"
+          ],
+          "UZS": 1359900,
+          "USD": 129.51
+      },
+      "stockSupplyPrice": {
+          "first": "UZS",
+          "ratio": {
+              "USD/UZS": 10500,
+              "UZS/USD": 9.523809523809524e-5
+          },
+          "order": [
+              "UZS",
+              "USD"
+          ],
+          "UZS": 1087920,
+          "USD": 103.61
+      },
+      "stockProperties": [],
+      "applied": false,
+      "diffs": null,
+      "ingredients": null,
+      "productTags": null,
+      "orderPropertyPrices": null,
+      "landedCostPrice": {
+          "first": "UZS",
+          "ratio": {
+              "USD/UZS": 10500,
+              "UZS/USD": 9.523809523809524e-5
+          },
+          "order": [
+              "UZS",
+              "USD"
+          ],
+          "UZS": 1087920,
+          "USD": 103.61
+      },
+      "stockExpirationDate": null,
+      "stock": "75956cdb-2d83-4149-adb0-878a19ee987f",
+      "landedCosts": null,
+      "images": [],
+      "uploadedImages": []
+  },
+  "lastUpdateTime": "2020-11-26 17:57:58",
+  "showMarket": true,
+  "uploadedImages": [],
+  "innerHitIds": null,
+  "technicalCard": false,
+  "analogs": [],
+  "modifiers": [],
+  "baseUnitRatio": null,
+  "recSupplierPrice": null,
+  "recSellPrice": null,
+  "minStockCount": null,
+  "maxStockCount": null,
+  "tracking": null,
+  "importProperties": []
+}
