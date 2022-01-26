@@ -10,7 +10,9 @@ const Navbar = ({ isSearchpage }) => {
       <Col>
         <Button
           type="link"
-          onClick={() => (isSearchpage ? navigate("/products") : navigate("/"))}
+          onClick={() =>
+            isSearchpage ? navigate("/products") : navigate("/login")
+          }
         >
           <SwapLeftOutlined />
           Back

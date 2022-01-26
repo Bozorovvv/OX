@@ -7,7 +7,6 @@ import Login from "./pages/Login";
 import Products from "./pages/Products";
 import Search from "./pages/Search";
 
-
 function App() {
   const [products, setProducts] = useState([]);
 
@@ -33,7 +32,7 @@ function App() {
   return (
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
       <Routes>
-        <Route exact path="/" element={<Login />} />
+        <Route exact path="/login" element={<Login />} />
         <Route path="/products" element={<Products products={products} />} />
         <Route path="/search" element={<Search products={products} />} />
       </Routes>
