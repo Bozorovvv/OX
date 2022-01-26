@@ -1,86 +1,75 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Col, Row, Form, Input, Button } from 'antd'
-// import clip from '../assets/products.mp4'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Form, Input, Button, Card } from "antd";
 
 const Login = () => {
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const onFinish = (values) => {
-    setLoading(true)
-    fetch('https://toko.ox-sys.com/security/auth_check', {
-      method: 'POST',
+    setLoading(true);
+    fetch("https://toko.ox-sys.com/security/auth_check", {
+      method: "POST",
       headers: {
-        'Content-Type': 'Application/x-www-form-urlencoded',
+        "Content-Type": "Application/x-www-form-urlencoded",
       },
       body: `_username=${values.username}&_password=${values.password}&_subdomain=${values.subdomain}`,
     })
       .then((response) => response.json())
       .then((response) => {
-        localStorage.setItem('token', response.token)
-        navigate('/main')
+        localStorage.setItem("token", response.token);
+        navigate("/products");
       })
-      .catch((error) => console.log(error))
-    setLoading(true)
-  }
+      .catch((error) => console.log(error));
+    setLoading(true);
+  };
 
   return (
-    <Row justify="center" align="middle" style={{ height: '100vh' }}>
-      <Col>
-        {/* <video
-          width="100%"
-          autoPlay
-          loop
-          muted
-          style={{
-            height: '100vh',
-            width: '100vw',
-            position: 'relative',
-            zIndex: 1,
-          }}
+    <Card
+      style={{
+        borderRadius: "10px",
+        boxShadow: "5px 8px 24px 5px rgba(208, 216, 243, 0.6)",
+      }}
+    >
+      <h2
+        style={{ display: "flex", justifyContent: "center", margin: "16px 0" }}
+      >
+        Welcome Shop
+      </h2>
+      <Form style={{ width: "300px" }} onFinish={onFinish}>
+        <Form.Item
+          name="username"
+          rules={[{ required: true, message: "Please input your username!" }]}
         >
-          <source src={clip} type="video/mp4" />
-        </video> */}
-
-        <Form
-          name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          onFinish={onFinish}
+          <Input placeholder="user name" />
+        </Form.Item>
+        <Form.Item
+          name="subdomain"
+          rules={[{ required: true, message: "Please input your company!" }]}
         >
-          <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            label="Company"
-            name="subdomain"
-            rules={[{ required: true, message: 'Please input your company!' }]}
-          >
-            <Input />
-          </Form.Item>
+          <Input placeholder="company" />
+        </Form.Item>
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
+        <Form.Item
+          name="password"
+          rules={[{ required: true, message: "Please input your password!" }]}
+        >
+          <Input.Password placeholder="password" />
+        </Form.Item>
+
+        <Form.Item>
+          <Button
+            style={{ width: "100%" }}
+            loading={loading}
+            type="primary"
+            htmlType="submit"
           >
-            <Input.Password />
-          </Form.Item>
+            Login
+          </Button>
+        </Form.Item>
+      </Form>
+    </Card>
+  );
+};
 
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button loading={loading} type="primary" htmlType="submit">
-              Login
-            </Button>
-          </Form.Item>
-        </Form>
-      </Col>
-    </Row>
-  )
-}
-
-export default Login
+export default Login;

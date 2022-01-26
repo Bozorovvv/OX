@@ -1,20 +1,44 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Login from './pages/Login'
-import Main from './pages/Main'
-import Search from './pages/Search'
-import 'antd/dist/antd.css'
+import React, { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { url } from "./api";
+import { Row } from "antd";
+import Login from "./pages/Login";
+import Products from "./pages/Products";
+import Search from "./pages/Search";
+import "antd/dist/antd.css";
 
 function App() {
+  const [products, setProducts] = useState([]);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      fetch(`${url}/variations`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => setProducts(response.items))
+        .catch((error) => console.log(error));
+    } else {
+      navigate("/login");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [localStorage.getItem("token")]);
+
   return (
-    <div className="App">
+    <Row justify="center" align="middle" style={{ height: "100vh" }}>
       <Routes>
-        <Route path="/main" element={<Main />} />
+        <Route path="/products" element={<Products products={products} />} />
         <Route exact path="/login" element={<Login />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search" element={<Search products={products} />} />
       </Routes>
-    </div>
-  )
+    </Row>
+  );
 }
 
-export default App
+export default App;
