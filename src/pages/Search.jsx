@@ -19,9 +19,9 @@ const Search = ({ products }) => {
             b.name.toLowerCase().indexOf(search.toLowerCase())
         )
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
-  console.log(filteredProducts);
   const columns = [
     {
       title: "Name",
@@ -33,8 +33,21 @@ const Search = ({ products }) => {
       <Col span={12} offset={6}>
         <Navbar isSearchpage={true} />
         <h1>Search page</h1>
-        <Input onChange={(e) => setSearch(e.target.value)} />
+        <Input
+          placeholder="search..."
+          style={{
+            borderRadius: "10px",
+            boxShadow: "5px 8px 24px 5px rgba(208, 216, 243, 0.6)",
+            margin: "16px 0",
+            height: "50px",
+          }}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <Table
+          style={{
+            borderRadius: "10px",
+            boxShadow: "5px 8px 24px 5px rgba(208, 216, 243, 0.6)",
+          }}
           rowKey={(record) => record.id}
           loading={products.length <= 0}
           columns={columns}

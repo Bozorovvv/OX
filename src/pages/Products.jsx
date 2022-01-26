@@ -52,9 +52,14 @@ function Products({ products }) {
         <Navbar />
         <h1>Products page</h1>
         <Table
+          style={{
+            borderRadius: "10px",
+            boxShadow: "5px 8px 24px 5px rgba(208, 216, 243, 0.6)",
+          }}
           loading={products.length <= 0}
           columns={columns}
           dataSource={products}
+          rowKey={(record) => record.id}
         />
       </Col>
     </Layout.Content>

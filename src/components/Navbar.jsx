@@ -7,12 +7,10 @@ const Navbar = ({ isSearchpage }) => {
   const navigate = useNavigate();
   return (
     <Row justify="space-between" style={{ marginBottom: "16px" }}>
-      <Col >
+      <Col>
         <Button
           type="link"
-          onClick={() =>
-            isSearchpage ? navigate("/products") : navigate("/login")
-          }
+          onClick={() => (isSearchpage ? navigate("/products") : navigate("/"))}
         >
           <SwapLeftOutlined />
           Back
