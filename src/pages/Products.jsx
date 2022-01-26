@@ -53,6 +53,7 @@ function Products({ products }) {
         <h1>Products page</h1>
         <Table
           style={{
+            padding: "16px",
             borderRadius: "10px",
             boxShadow: "5px 8px 24px 5px rgba(208, 216, 243, 0.6)",
           }}
