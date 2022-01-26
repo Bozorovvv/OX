@@ -9,7 +9,6 @@ function Products({ products }) {
       dataIndex: "name",
       onFilter: (value, record) => record.name.indexOf(value) === 0,
     },
-
     {
       title: "Пол",
       dataIndex: "",
@@ -48,19 +47,19 @@ function Products({ products }) {
 
   return (
     <Layout.Content style={{ padding: "50px", height: "100vh" }}>
-      <Col span={12} offset={6}>
+      <Col span={16} offset={4}>
         <Navbar />
         <h1>Products page</h1>
         <Table
           style={{
-            padding: "16px",
+            padding: "24px",
             borderRadius: "10px",
             boxShadow: "5px 8px 24px 5px rgba(208, 216, 243, 0.6)",
           }}
-          loading={products.length <= 0}
+          loading={products?.length <= 0}
           columns={columns}
           dataSource={products}
-          rowKey={(record) => record.id}
+          rowKey={(record) => record?.id}
         />
       </Col>
     </Layout.Content>

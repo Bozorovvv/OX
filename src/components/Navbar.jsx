@@ -1,33 +1,37 @@
-import React from "react";
-import { Col, Row, Button } from "antd";
-import { useNavigate } from "react-router-dom";
-import { SwapLeftOutlined, SwapRightOutlined } from "@ant-design/icons";
+import React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { SwapLeftOutlined, SwapRightOutlined } from '@ant-design/icons'
+import { Col, Row, Button } from 'antd'
 
-const Navbar = ({ isSearchpage }) => {
-  const navigate = useNavigate();
+const Navbar = () => {
+  const pageLocation = useLocation()
+  const navigate = useNavigate()
+
   return (
-    <Row justify="space-between" style={{ marginBottom: "16px" }}>
+    <Row justify="space-between" style={{ marginBottom: '16px' }}>
       <Col>
         <Button
           type="link"
           onClick={() =>
-            isSearchpage ? navigate("/products") : navigate("/login")
+            pageLocation.pathname !== '/products'
+              ? navigate('/products')
+              : navigate('/login')
           }
         >
           <SwapLeftOutlined />
           Back
         </Button>
       </Col>
-      {!isSearchpage && (
+      {pageLocation.pathname === '/products' && (
         <Col>
-          <Button type="link" onClick={() => navigate("/search")}>
+          <Button type="link" onClick={() => navigate('/search')}>
             Search page
             <SwapRightOutlined />
           </Button>
         </Col>
       )}
     </Row>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
