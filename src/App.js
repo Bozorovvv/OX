@@ -31,7 +31,8 @@ function App() {
   return (
     <Row justify="center" align="middle" style={{ height: '100vh' }}>
       <Routes>
-        <Route exact path="/login" element={<Login />} />
+        <Route index element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route
           path="/products"
           element={
